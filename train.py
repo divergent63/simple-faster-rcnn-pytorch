@@ -21,7 +21,9 @@ from utils.eval_tool import eval_detection_voc
 import resource
 
 rlimit = resource.getrlimit(resource.RLIMIT_NOFILE)
-resource.setrlimit(resource.RLIMIT_NOFILE, (20480, rlimit[1]))
+# resource.setrlimit(resource.RLIMIT_NOFILE, (4096, rlimit[1]))
+# print('\nrlimit:\n', rlimit[1], resource.RLIMIT_NOFILE)
+# resource.setrlimit(resource.RLIMIT_NOFILE, (102400, 102400))
 
 matplotlib.use('agg')
 
@@ -122,7 +124,7 @@ def train(**kwargs):
             trainer.faster_rcnn.scale_lr(opt.lr_decay)
             lr_ = lr_ * opt.lr_decay
 
-        if epoch == 13: 
+        if epoch == 9:
             break
 
 
